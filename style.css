@@ -1,0 +1,214 @@
+/*** CUSTOM PROPERTIES ***/
+:root {
+  --principalFont: "Krub", sans-serif;
+  --bodyBgColor: #f6f6f6;
+  --alive: #228b22;
+  --dead: #7e1921;
+  --unknoww: #ffc107;
+  --btnBorder: #000;
+  --listColor: #02afcc;
+}
+
+/*** FONTS ***/
+/* @import url('https://fonts.googleapis.com/css2?family=Krub:wght@300;400;700&display=swap'); */
+
+/* krub-400 - latin */
+@font-face {
+  font-family: "Krub";
+  font-style: normal;
+  font-weight: 400;
+
+  src: url("fonts/krub-v9-latin-regular.woff2") format("woff2"),
+    url("fonts/krub-v9-latin-regular.woff") format("woff");
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--bodyBgColor);
+  font-family: var(--principalFont);
+  font-size: 1.6rem;
+}
+
+h2,
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*** GLOBALES ***/
+.container {
+  width: 25rem;
+  width: min(25rem, 90%);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  /* position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%; */
+}
+
+.shadow {
+  box-shadow: 0px 2px 12px 2px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+}
+
+.alive {
+  color: var(--alive);
+}
+.dead {
+  color: var(--dead);
+}
+.unknown {
+  color: var(--unknoww);
+}
+
+.content {
+  min-height: 325px;
+  max-height: 345.72px;
+}
+.content img {
+  display: block;
+  max-width: 100%;
+  /* height: auto; */
+  margin: 0 auto;
+  /* width: 250px; */
+  height: 250px;
+}
+
+/*** CARD BODY ***/
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body h2,
+p {
+  text-align: center;
+  /* margin: 0.5rem 0 0 1rem; */
+}
+
+.card-body h2 {
+  margin: 0.5rem 0 0 0;
+  font-size: 1.8rem;
+}
+
+.card-body p {
+  /* color: var(--unknoww); */
+  font-weight: 700;
+  font-size: 1.5rem;
+  /* margin: 0 0 0 1rem; */
+  /* margin-left: 1rem; */
+}
+
+/*** LIST GROUP ***/
+.list-group {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 0.5rem;
+  padding: 0 0 0.5rem 0;
+}
+
+.list-group-item {
+  background-color: var(--listColor);
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 0.3rem;
+}
+
+/*** BOTÓN ***/
+/* From uiverse.io by @adamgiebl */
+button {
+  width: 100%;
+  border: none;
+  display: block;
+  position: relative;
+  padding: 0.5em 2.4em;
+  font-size: 18px;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  color: #e98306;
+  z-index: 1;
+  font-family: inherit;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+@media (min-width: 30em /* 480px */) {
+
+  button {
+    width: auto;
+  }
+}
+
+button span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+  border: 3px solid #e98306;
+}
+
+button span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 8%;
+  height: 800%;
+  background: var(--bodyBgColor);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(60deg);
+  /* transition: all 0.3s; */
+  transition: background 0.3s, 
+    width 0.3s, 
+    transform 0.3s;
+}
+
+@media (min-width: 30em /* 480px */) {
+  
+  button span::before {
+    height: 500%;
+  }
+}
+
+button:hover span::before {
+  transform: translate(-50%, -50%) rotate(90deg);
+  width: 100%;
+  background: #e98306;
+}
+
+button:hover {
+  color: white;
+}
+
+/* button:active span::before {
+  background: #2751cd;
+} */
+
+/*** MEDIA QUERIE ***/
